@@ -11,6 +11,7 @@ const map = new mapboxgl.Map({
     center: [-98.4916, 29.4252] // [lng, lat] for San Antonio
 });
 
+//Current location
 let geoSanAntonio = new URLSearchParams({
     APPID: weather_api,
     lat: 29.4246,
@@ -25,6 +26,7 @@ let marker = new mapboxgl.Marker(
 .setLngLat([-98.495141, 29.4246])
 .addTo(map);
 
+//update weather to reflect new location
 function updatedWeather(){
     let currentMarker = new URLSearchParams({
         APPID: weather_api,
@@ -63,6 +65,6 @@ function renderWeatherForecast(geo){
 
     }) 
 }
-
+//default location/weather is San Antonio
 renderWeatherForecast(geoSanAntonio)
 
