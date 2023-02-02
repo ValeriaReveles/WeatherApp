@@ -7,33 +7,34 @@
 body{
     margin: 0;
     padding: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background-image: url("http://www.gregbottle.com/uploads/1/1/2/7/112717723/20191022-7r307769-edit_orig.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     width: 100%;
 }
-/* .main{
-    background-image: url("http://www.gregbottle.com/uploads/1/1/2/7/112717723/20191022-7r307769-edit_orig.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-} */
 
 #map{
-    width: 500px;
-    height: 500px;
-    margin: auto;
+    width: 70rem;
+    height: 30rem;
+    margin: auto!important;
+    padding: 0!important;
 }
 
 .forecast-cards{
+    margin: 1rem;
+    padding: 1rem;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    text-transform: capitalize;
+    color: whitesmoke;
 }
 
 .card{
-    border: .2rem red solid;
+    border: .2rem black solid;
+    background-color: black;
     margin: 5rem;
     padding:.5rem;
     text-align: center;

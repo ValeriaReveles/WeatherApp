@@ -55,7 +55,7 @@ function renderWeatherForecast(geo){
             summary[i].textContent = data.list[i].weather[0].description;
             loc[i].textContent = data.city.name;
             let icon1 = data.list[i].weather[0].icon;
-            icon[i].innerHTML = `<img src=" http://openweathermap.org/img/wn/${icon1}.png" style= 'height:6rem'/>`;
+            icon[i].innerHTML = `<img src=" http://openweathermap.org/img/wn/${icon1}.png" style= 'height:5.5rem'/>`;
         }
         console.log('Entire weather API response: ', data);
         console.log('Current weather information: ', data.list[0].main);

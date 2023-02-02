@@ -11,17 +11,17 @@
     <!--The CSS styling-->
 </head>
 <body>
+    <header>
+        <h1>Weather Forecast</h1>
+        <form id="search-form">
+            <label for="search-input"></label>
+            <input type="text" id="search-input" placeholder="Search for location">
+            <button id="search-submit" type="button">Find</button>
+        </form>
+    </header>
+    <div class="map" id="map"></div>
     <div class="main">
-        <header>
-            <h1>Weather Forecast</h1>
-            <form id="search-form">
-                <label for="search-input"></label>
-                <input type="text" id="search-input" placeholder="Search for location">
-                <button id="search-submit" type="button">Find</button>
-            </form>
-        </header>  
-        <div class="map" id="map"></div>
-        <div class="container">
+        <!-- <div class="container"> -->
             <div class="forecast-cards">
                 <div class="card">
                     <div class="location"></div>
@@ -55,7 +55,7 @@
                     <div class="summary">----</div>
                 </div>
             </div>
-        </div>
+        <!-- </div> -->
     </div>
         
 <!--Linking the javascript code-->
