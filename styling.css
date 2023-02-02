@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("http://www.gregbottle.com/uploads/1/1/2/7/112717723/20191022-7r307769-edit_orig.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+/* .main{
+    background-image: url("http://www.gregbottle.com/uploads/1/1/2/7/112717723/20191022-7r307769-edit_orig.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+} */
+
+#map{
+    width: 500px;
+    height: 500px;
+    margin: auto;
+}
+
+.forecast-cards{
+    display: flex;
+    flex-direction: row;
+}
+
+.card{
+    border: .2rem red solid;
+    margin: 5rem;
+    padding:.5rem;
+    text-align: center;
+}
