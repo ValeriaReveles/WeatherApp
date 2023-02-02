@@ -28,7 +28,7 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     color: whitesmoke;
 }
 
