@@ -63,15 +63,18 @@ marker.on("dragend", updatedWeather);
 
 function renderWeatherForecast(geo){
     const icon = document.querySelectorAll(".icon");
+    const dateRender = document.querySelectorAll(".current-day");
     const temperature = document.querySelectorAll(".temp");
     const summary = document.querySelectorAll(".summary");
     const queryWeather = `https://api.openweathermap.org/data/2.5/onecall?${geo}`
     fetch(queryWeather)
         .then(function (response) {
             return response.json();
-        }).then(function (data){
-        console.log(data)
+}).then(function (data){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
         for (let i = 0; i < 5; i++) {
+            let date = new Date(data.daily[i].dt * 1000)
+            console.log('Current date is: ',date)
+            dateRender[i].textContent = date.toDateString();
             temperature[i].textContent = data.daily[i].temp.day + " °F";
             summary[i].textContent = data.daily[i].weather[0].description.toUpperCase();
             let icon1 = data.daily[i].weather[0].icon;
@@ -80,6 +83,7 @@ function renderWeatherForecast(geo){
         console.log('Entire weather API response: ', data);
         console.log('Current weather information: ', data.current);
         console.log('Weather for tomorrow: ', data.daily[1]);
+
 
     }) 
 }
