@@ -19,7 +19,6 @@ let geoSanAntonio = new URLSearchParams({
     lon: -98.495141,
     units: "imperial"
 })
-
     
 let marker = new mapboxgl.Marker(
     {
@@ -30,19 +29,19 @@ let marker = new mapboxgl.Marker(
 .addTo(map);
 
 
-function renderLocationName(){
+function renderLocationAddress(){
     const renderLocation = document.querySelector(".current-location");
-    let newMarker = marker.getLngLat();
-   reverseGeocode(newMarker, mapbox_token).then(function(results) {
-    console.log(results);
-    let renderLocationHMTL = "";
-   renderLocationHMTL += `
-   <h1">${results}</h1>`;
-   renderLocation.innerHTML = renderLocationHMTL;
-})
+    let addMarker = marker.getLngLat();
+    reverseGeocode(addMarker, mapbox_token).then(function(results) {
+            console.log(results);
+            let renderLocationHMTL = "";
+            renderLocationHMTL += 
+            `<h1">${results}</h1>`;
+            renderLocation.innerHTML = renderLocationHMTL;
+    })
 }
 
-renderLocationName(geoSanAntonio)
+renderLocationAddress(geoSanAntonio)
 
 
 //update weather to reflect new location
@@ -53,11 +52,7 @@ function updatedWeather(){
         lon: marker.getLngLat().lng,
         units: "imperial"
     })
-//    let newMarker = marker.getLngLat();
-//    reverseGeocode(newMarker, mapbox_token).then(function(results) {
-//     // logs the address for The Alamo
-//     console.log(results);
-// });
+    renderLocationAddress(currentMarker)
     renderLocationName(currentMarker)
     renderWeatherForecast(currentMarker)
    // renderHourlyWeather(currentMarker)
@@ -88,6 +83,31 @@ function renderWeatherForecast(geo){
 
     }) 
 }
-//default location/weather is San Antonio
+
 renderWeatherForecast(geoSanAntonio)
 
+
+function renderLocationName(){
+    let nameLat = marker.getLngLat().lat;
+    let nameLon = marker.getLngLat().lng;
+    const renderName = document.querySelectorAll(".location");
+    let nameParams = new URLSearchParams({
+        APPID: weather_api,
+        lat: nameLat,
+        lon: nameLon,
+        limit: 2
+    })
+    fetch("http://api.openweathermap.org/geo/1.0/reverse?" + nameParams, {
+        method: "GET"
+    }
+    ).then(async function (response) {
+        return response.json();
+    }).then(function (data){
+        console.log(data);
+        for (let i = 0; i < 5; i++) {
+        renderName[i].textContent = data[0].name + ", " + data[0].country;
+        }
+    }) 
+}
+
+renderLocationName(geoSanAntonio)
